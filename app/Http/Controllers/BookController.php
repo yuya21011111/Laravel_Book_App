@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -38,6 +40,10 @@ class BookController extends Controller
             'note' => ['nullable','string','max:200'],
             // 'image1' => ['nullable'],
         ]);
+
+        // トランザクション処理
+    try{
+        DB::transaction(function () use($request,$id) {
         $book = Book::findOrFail($id);
         $book->name = $request->name;
         $book->status = $request->status;
@@ -46,8 +52,13 @@ class BookController extends Controller
         $book->read_at = $request->read_at;
         $book->note = $request->note;
         // $book->image = $request->image;
-
         $book->save();
+        DB::commit();
+    },2);
+    }catch(Throwable $e){
+        Log::error($e);
+        throw $e;
+    }
 
         // 更新後はbookに戻る
         return redirect()
