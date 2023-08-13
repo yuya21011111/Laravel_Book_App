@@ -17,4 +17,15 @@ class BookController extends Controller
             'book' => $book
         ]);
     }
+
+    public function edit(Book $book) {
+        return view('book.edit',[
+            'book' => $book
+        ]);
+    }
+
+    public function update(Request $request) {
+        dd($request);
+       return view('book.index');
+    }
 }

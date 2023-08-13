@@ -36,8 +36,8 @@
                                     <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ $book->publication }}</td>
                                     <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ Carbon\Carbon::parse($book->read_at)->format('Y年n月j日') }}</td>
                                     <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ Str::limit($book->note,20,$end='...') }}</td>
-                                    <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">
-                                        <a  href="{{ route('book.show', $book->id) }}" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">詳細</a>
+                                    <td class="border-t-2 border-b-2 border-gray-200">
+                                        <button type="button" onclick="location.href='{{ route('book.show',$book->id) }}'" class="flex ml-auto   text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded">詳細</button>
                                     </td>
                                 </tr>
                                 @endforeach
