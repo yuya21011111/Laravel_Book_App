@@ -8,24 +8,51 @@ use App\Models\Book;
 class BookController extends Controller
 {
     public function index() {
+        // トップ画面
         $books = Book::paginate(10);
         return view('book.index',compact('books'));
     }
 
     public function show(Book $book) {
+        // 詳細画面
         return view('book.show',[
             'book' => $book
         ]);
     }
 
     public function edit(Book $book) {
+        // 編集画面
         return view('book.edit',[
             'book' => $book
         ]);
     }
 
-    public function update(Request $request) {
-        dd($request);
-       return view('book.index');
+    public function update(Request $request,$id) {
+        // 編集した後の本の更新処理
+        $request->validate([
+            'name' => ['required', 'string'],
+            'status' => ['required', 'string'],
+            'author' => ['nullable','string'],
+            'publication' => ['nullable','string'],
+            'read_at' => ['nullable','date'],
+            'note' => ['nullable','string','max:200'],
+            // 'image1' => ['nullable'],
+        ]);
+        $book = Book::findOrFail($id);
+        $book->name = $request->name;
+        $book->status = $request->status;
+        $book->author = $request->author;
+        $book->publication = $request->publication;
+        $book->read_at = $request->read_at;
+        $book->note = $request->note;
+        // $book->image = $request->image;
+
+        $book->save();
+
+        // 更新後はbookに戻る
+        return redirect()
+        ->route('book')
+        ->with(['message' => '本の更新を完了しました。',
+               'status' => 'info']);
     }
 }
