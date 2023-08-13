@@ -11,4 +11,10 @@ class BookController extends Controller
         $books = Book::paginate(10);
         return view('book.index',compact('books'));
     }
+
+    public function show(Book $book) {
+        return view('book.show',[
+            'book' => $book
+        ]);
+    }
 }

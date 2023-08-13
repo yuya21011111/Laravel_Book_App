@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->prefix('book')->group(function () {
     Route::get('/',[BookController::class,'index'])->name('book');
+    Route::get('/{book}',[BookController::class,'show'])->name('book.show');
 });
 
 Route::middleware('auth')->group(function () {
