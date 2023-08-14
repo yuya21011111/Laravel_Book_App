@@ -16,15 +16,15 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
-        $fileName = $this->faker->colorName() . '.jpg';
+        // $fileName = $this->faker->colorName() . '.jpg';
         return [
             'name' => $this->faker->name(),
             'status' => $this->faker->numberBetween(1,4),
             'author' => $this->faker->name(),
-            'image' => $fileName,
             'publication' => $this->faker->name(),
             'read_at' => $this->faker->date(),
             'note' => $this->faker->realText(),
+            // 'image' => $fileName,
         ];
     }
 }

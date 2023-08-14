@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use App\Services\ImageService;
 
 class BookController extends Controller
 {
@@ -38,7 +39,6 @@ class BookController extends Controller
             'publication' => ['nullable','string'],
             'read_at' => ['nullable','date'],
             'note' => ['nullable','string','max:200'],
-            // 'image1' => ['nullable'],
         ]);
 
         // トランザクション処理
@@ -51,7 +51,11 @@ class BookController extends Controller
         $book->publication = $request->publication;
         $book->read_at = $request->read_at;
         $book->note = $request->note;
-        // $book->image = $request->image;
+        $imageFile = $request->image;
+        if(!is_null($imageFile) && $imageFile->isValid()){
+            $fileNameToStore = ImageService::upload($imageFile,'images');
+             $book->filename = $fileNameToStore;
+        }
         $book->save();
         DB::commit();
     },2);

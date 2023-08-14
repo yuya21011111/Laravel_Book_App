@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->tinyInteger('status');
             $table->string('author')->nullable();
-            $table->string('image')->nullable();
             $table->string('publication')->nullable();
             $table->date('read_at')->nullable();
             $table->string('note')->nullable();
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }
