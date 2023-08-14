@@ -11,6 +11,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
+                        <button type="button"  onclick="location.href='{{ route('book.create') }}'"  class="flex ml-auto  text-white bg-yellow-400 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-700 rounded">新規作成</button>
+                    </div>
                     <section class="text-gray-600 body-font">
                         <div class="container px-5 py-24 mx-auto">
                           <div class="lg:w-2/3 w-full mx-auto overflow-auto">
@@ -46,9 +49,6 @@
                               </tbody>
                             </table>
                             {{ $books->links() }}
-                          </div>
-                          <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
-                            <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
                           </div>
                         </div>
                       </section>

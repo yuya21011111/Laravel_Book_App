@@ -16,6 +16,43 @@ class BookController extends Controller
         return view('book.index',compact('books'));
     }
 
+    public function create() {
+        // 新規作成
+
+        return view('book.create');
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'status' => ['required', 'string'],
+            'author' => ['nullable','string'],
+            'publication' => ['nullable','string'],
+            'read_at' => ['nullable','date'],
+            'note' => ['nullable','string','max:200'],
+        ]);
+        $imageFails = $request->file('files');
+        if(!is_null($imageFails)){
+            foreach($imageFails as $imageFail) {
+                $fileNameToStore = ImageService::upload($imageFail,'images');
+                Book::create([
+                    'name' => $request->name,
+                    'status' => $request->status,
+                    'author' => $request->author,
+                    'publication' => $request->publication,
+                    'read_at' => $request->read_at,
+                    'note' => $request->note,
+                    'filename' => $fileNameToStore,
+                ]);
+            }
+        }
+        return redirect()
+        ->route('book')
+        ->with(['message' => '新規作成を行いました。',
+               'status' => 'info']);
+        
+    }
+
     public function show(Book $book) {
         // 詳細画面
         return view('book.show',[
