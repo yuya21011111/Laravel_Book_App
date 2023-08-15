@@ -11,6 +11,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                <form method="get" action="{{ route('book') }}">
+                  <div class="flex space-x-2  items-center">
+                    <div><input name="keyword" class="border border-gray-500 py-2"  placeholder="キーワードを入力"></div>
+                    <div><button type="submit" class="ml-auto  text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded">検索</button></div>
+                  </div>
+                </form>
                     <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
                         <button type="button"  onclick="location.href='{{ route('book.create') }}'"  class="flex ml-auto  text-white bg-yellow-400 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-700 rounded">新規作成</button>
                     </div>
@@ -25,7 +31,7 @@
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">ステータス</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">著者</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">出版社</th>
-                                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">読破日</th>
+                                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">登録日</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">メモ</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">詳細表示</th>
                                   <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>

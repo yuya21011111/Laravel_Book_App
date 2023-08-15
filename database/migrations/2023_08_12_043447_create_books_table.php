@@ -17,7 +17,7 @@ return new class extends Migration
             $table->tinyInteger('status');
             $table->string('author')->nullable();
             $table->string('publication')->nullable();
-            $table->date('read_at')->nullable();
+            $table->date('read_at');
             $table->string('note')->nullable();
             $table->string('filename')->nullable();
             $table->timestamps();

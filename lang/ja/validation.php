@@ -155,7 +155,7 @@ return [
 
     'attributes' => [
         'password' => 'パスワード',
-        'name' => '名',
+        'name' => '本タイトル',
         'email' => 'メールアドレス',
         'title' => '件名',
         'gender' => '性別',
@@ -179,6 +179,8 @@ return [
         'post' => '郵便番号',
         'address' => '住所',
         'birthday' => '誕生日',
-        'gender' => '性別'
+        'gender' => '性別',
+        'status' => 'ステータス',
+        'read_at' => '登録日',
     ],
 ];

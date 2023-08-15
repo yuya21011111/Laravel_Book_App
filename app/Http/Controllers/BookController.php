@@ -10,10 +10,29 @@ use App\Services\ImageService;
 
 class BookController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         // トップ画面
-        $books = Book::paginate(10);
-        return view('book.index',compact('books'));
+        // $books = Book::paginate(10);
+        // return view('book.index',compact('books'));
+
+        $keyword = $request->only('keyword');
+        $books = Book::keywordsearch($keyword)->orderBy('id','desc')->paginate(10);
+        
+        $publications = Book::select('publication')-> groupBy('publication')->pluck('publication');
+        $authors = Book::select('author')-> groupBy('author')->pluck('author');
+
+        return view(
+            'book.index',
+            ['books' => $books,
+             'publications' => $publications,
+             'authors' => $authors,
+
+             'name' => $keyword['keyword'] ?? '',
+            //  'publication' => $keyword['publication'] ?? '',
+            //  'author' => $keyword['author'] ?? '',
+            ]
+        );
+
     }
 
     public function create() {
@@ -26,15 +45,21 @@ class BookController extends Controller
         $request->validate([
             'name' => ['required', 'string'],
             'status' => ['required', 'string'],
-            'author' => ['nullable','string'],
-            'publication' => ['nullable','string'],
-            'read_at' => ['nullable','date'],
+            'author' => ['nullable','string','max:20'],
+            'publication' => ['nullable','string','max:200'],
+            'read_at' => ['required','date'],
             'note' => ['nullable','string','max:200'],
         ]);
+        
         $imageFails = $request->file('files');
         if(!is_null($imageFails)){
             foreach($imageFails as $imageFail) {
                 $fileNameToStore = ImageService::upload($imageFail,'images');
+            }
+        }
+        else {
+            $fileNameToStore = null;
+        }
                 Book::create([
                     'name' => $request->name,
                     'status' => $request->status,
@@ -44,8 +69,6 @@ class BookController extends Controller
                     'note' => $request->note,
                     'filename' => $fileNameToStore,
                 ]);
-            }
-        }
         return redirect()
         ->route('book')
         ->with(['message' => '新規作成を行いました。',
@@ -74,7 +97,7 @@ class BookController extends Controller
             'status' => ['required', 'string'],
             'author' => ['nullable','string'],
             'publication' => ['nullable','string'],
-            'read_at' => ['nullable','date'],
+            'read_at' => ['required','date'],
             'note' => ['nullable','string','max:200'],
         ]);
 

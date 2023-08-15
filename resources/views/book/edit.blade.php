@@ -7,6 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <!-- Validation Errors -->
+          <x-auth-validation-errors class="flex justify-center items-center text-lg mb-4" :errors="$errors" />
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div>
@@ -47,7 +49,7 @@
                               <input type="text" name="publication" class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"  value="{{ $book->publication }}"/>
                             </div>
                             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                <dt class="text-sm font-medium leading-6 text-gray-900">読破日</dt>
+                                <dt class="text-sm font-medium leading-6 text-gray-900">登録日</dt>
                                 <input type="date" name="read_at" class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" value="{{ $book->read_at }}"/>
                               </div>
                             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
