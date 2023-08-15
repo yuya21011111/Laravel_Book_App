@@ -30,6 +30,7 @@ Route::middleware(['auth'])->prefix('book')->group(function () {
     Route::get('/show/{book}',[BookController::class,'show'])->name('book.show');
     Route::get('/edit/{book}',[BookController::class,'edit'])->name('book.edit');
     Route::post('/update/{book}',[BookController::class,'update'])->name('book.update');
+    Route::delete('/destroy/{book}',[BookController::class,'destroy'])->name('book.destroy');
 });
 
 Route::middleware('auth')->group(function () {

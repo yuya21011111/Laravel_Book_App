@@ -107,4 +107,13 @@ class BookController extends Controller
         ->with(['message' => '本の更新を完了しました。',
                'status' => 'info']);
     }
+
+    public function destroy($id) {
+        Book::findOrFail($id)->delete(); // デリート処理
+        return redirect()
+         ->route('book')
+         ->with(['message' => '本の情報を削除しました。', // status alertでtoastrを赤くする
+         'status' => 'alert']);
+
+    }
 }
