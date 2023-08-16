@@ -7,6 +7,16 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## 作成の目的
+
+・何冊か技術書を読む機会があったために読んだ本を管理したかったから。
+・１から何かアプリを作ってみたいと思ったため。
+
+## 作成したアプリ
+・アプリ名「ブックアプリ」
+・アプリURL 後日記載
+・GithubURL https://github.com/yuya21011111?tab=overview&from=2023-08-01&to=2023-08-13
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -64,7 +74,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## 目的
-
-プログラミング学習にあたり、何冊か技術書を読む機会があったためにその本を登録したり、また読みたい本を登録するアプリを作りたいと思い制作を始めました。
