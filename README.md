@@ -17,6 +17,21 @@
 ・アプリURL 後日記載<br>
 ・GithubURL https://github.com/yuya21011111<br>
 
+## 使用技術
+□フロントエンド<br>
+  .HTML<br>
+  .CSS<br>
+  .Tailwindcss<br>
+  .JavaScript<br>
+
+□バックエンド<br>
+  .PHP v8.1.13<br>
+  .Laravel v10.14.1<br>
+
+□インフラ<br>
+  .AWS(EC2,RDS)<br>
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

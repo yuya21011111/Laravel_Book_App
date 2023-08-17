@@ -49,6 +49,7 @@ class BookController extends Controller
             'publication' => ['nullable','string','max:200'],
             'read_at' => ['required','date'],
             'note' => ['nullable','string','max:200'],
+            'filename' =>['mimes:jpg,jpeg,png','max:4096'],
         ]);
         
         $imageFails = $request->file('files');
@@ -99,6 +100,7 @@ class BookController extends Controller
             'publication' => ['nullable','string'],
             'read_at' => ['required','date'],
             'note' => ['nullable','string','max:200'],
+            'filename' =>['mimes:jpg,jpeg,png','max:4096']
         ]);
 
         // トランザクション処理
