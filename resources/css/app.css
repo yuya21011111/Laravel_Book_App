@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* book.jpgの画像の設定 */
+
+.over-image {
+    position: relative;     
+    width: 60em;          
+    margin : 0.1em auto;     /* 垂直方向に50ピクセルのマージンを設定し、水平方向のマージンは自動的に計算され、要素が中央に配置されます */
+}
+.over-image p {
+    position: absolute;    
+    color: white;             /* テキストの色を赤に設定します */
+    top:50%;               /* 要素の上端を親要素の高さの50%に配置します */
+    left:50%;              /* 要素の左側を親要素の幅の50%に配置します */
+    -ms-transform: translate(-50%,-50%);     
+    -webkit-transform: translate(-50%,-50%);  
+    transform: translate(-50%,-50%);         
+    margin:0;             
+    padding:0;      
+    font-family: "Kokoro";       
+}
+  
+/* 文字をぼかす設定 */
+.over-image img {
+    width: 100%;           
+    -ms-filter: blur(2px);  
+    filter: blur(2px);      
+}

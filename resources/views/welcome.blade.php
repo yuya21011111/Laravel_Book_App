@@ -13,19 +13,20 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <!-- こころ明朝 -->
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
 
 </head>
 
-<body class="antialiased">
+<body class="antialiased bg-gray-150">
     <nav class="bg-gray-800">
         <div class="max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
                 <div class="flex flex-shrink-0 items-center">
-                    
                         <div class="w-16">
                             <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                         </div>
-                    
                 </div>
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div>
@@ -50,6 +51,42 @@
             </div>
         </div>
     </nav>
+    <div class="over-image">
+        <img src="{{asset('images/book.jpg')}}"/>
+        <p class="text-xl">読んだ本を管理へ〜</p>
+    </div>
+    <div class="columns-2 md:columns-3 lg:columns-4">
+        <img class="mb-4" src="https://source.unsplash.com/random/1">
+        <img class="mb-4" src="https://source.unsplash.com/random/2">
+        <img class="mb-4" src="https://source.unsplash.com/random/3">
+        <img class="mb-4" src="https://source.unsplash.com/random/4">
+        <img class="mb-4" src="https://source.unsplash.com/random/5">
+        <img class="mb-4" src="https://source.unsplash.com/random/6">
+        <img class="mb-4" src="https://source.unsplash.com/random/7">
+    </div>
+    <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <p class="text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">© 2023 ブックアプリ</font>
+            </font>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-100">
+                <a href="https://github.com/yuya21011111"><img src="{{asset('images/GitHub.ico') }}" class="w-5 h-5"></a>
+            </a>
+            <a class="ml-3 text-gray-300">
+              X
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </footer>
 </body>
 
 </html>
