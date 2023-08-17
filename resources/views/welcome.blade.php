@@ -25,7 +25,7 @@
             <div class="relative flex h-16 items-center justify-between">
                 <div class="flex flex-shrink-0 items-center">
                         <div class="w-16">
-                            <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                            <x-application-logo class="block h-9 w-auto fill-current  dark:text-gray-200" />
                         </div>
                 </div>
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -34,14 +34,14 @@
                             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                                 @auth
                                     <a href="{{ url('/dashboard') }}"
-                                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ブックアプリ</a>
+                                        class="font-semibold text-lime-500 hover:text-lime-700   focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ブックアプリ</a>
                                 @else
                                     <a href="{{ route('login') }}"
-                                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン
+                                        class="font-semibold text-gray-100 hover:text-gray-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン
                                         </a>
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}"
-                                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新規登録</a>
+                                            class="ml-4 font-semibold text-gray-100 hover:text-gray-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新規登録</a>
                                     @endif
                                 @endauth
                             </div>
@@ -53,18 +53,30 @@
     </nav>
     <div class="over-image">
         <img src="{{asset('images/book.jpg')}}"/>
-        <p class="text-xl">読んだ本を管理へ〜</p>
+        <p class="text-5xl text-lime-400">読んだ本を管理へ〜</p>
     </div>
-    <div class="columns-2 md:columns-3 lg:columns-4">
-        <img class="mb-4" src="https://source.unsplash.com/random/1">
-        <img class="mb-4" src="https://source.unsplash.com/random/2">
-        <img class="mb-4" src="https://source.unsplash.com/random/3">
-        <img class="mb-4" src="https://source.unsplash.com/random/4">
-        <img class="mb-4" src="https://source.unsplash.com/random/5">
-        <img class="mb-4" src="https://source.unsplash.com/random/6">
-        <img class="mb-4" src="https://source.unsplash.com/random/7">
-    </div>
-    <footer class="text-gray-600 body-font">
+
+    <div class="bg-orange-100">
+        <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">ブックアプリとは</h2>
+            <p class="mt-4 text-gray-500">読んだ本を記録したり、これから読みたいと思った本を登録できるアプリです。</p>
+      
+            <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+              
+            </dl>
+          </div>
+          <div class="columns-2 md:columns-3 lg:columns-4">
+            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
+            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
+            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
+            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
+            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
+            
+        </div>
+        </div>
+      </div>
+    <footer class="text-gray-600 bg-gray-300 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <p class="text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
             <font style="vertical-align: inherit;">
@@ -75,7 +87,7 @@
             <a class="text-gray-100">
                 <a href="https://github.com/yuya21011111"><img src="{{asset('images/GitHub.ico') }}" class="w-5 h-5"></a>
             </a>
-            <a class="ml-3 text-gray-300">
+            <a class="ml-3 text-gray-100">
               X
             </a>
             <a class="ml-3 text-gray-500">

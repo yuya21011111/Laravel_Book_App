@@ -10,8 +10,7 @@
     margin : 0.1em auto;     /* 垂直方向に50ピクセルのマージンを設定し、水平方向のマージンは自動的に計算され、要素が中央に配置されます */
 }
 .over-image p {
-    position: absolute;    
-    color: white;             /* テキストの色を赤に設定します */
+    position: absolute;
     top:50%;               /* 要素の上端を親要素の高さの50%に配置します */
     left:50%;              /* 要素の左側を親要素の幅の50%に配置します */
     -ms-transform: translate(-50%,-50%);     

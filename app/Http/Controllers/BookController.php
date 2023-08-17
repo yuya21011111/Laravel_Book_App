@@ -16,7 +16,7 @@ class BookController extends Controller
         // return view('book.index',compact('books'));
 
         $keyword = $request->only('keyword');
-        $books = Book::keywordsearch($keyword)->orderBy('id','desc')->paginate(10);
+        $books = Book::keywordsearch($keyword)->orderBy('id','asc')->paginate(5);
         
         $publications = Book::select('publication')-> groupBy('publication')->pluck('publication');
         $authors = Book::select('author')-> groupBy('author')->pluck('author');
