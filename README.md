@@ -19,17 +19,17 @@
 
 ## 使用技術
 □フロントエンド<br>
-  .HTML<br>
-  .CSS<br>
-  .Tailwindcss<br>
-  .JavaScript<br>
+  ・HTML<br>
+  ・CSS<br>
+  ・Tailwindcss<br>
+  ・JavaScript<br>
 
 □バックエンド<br>
-  .PHP v8.1.13<br>
-  .Laravel v10.14.1<br>
+  ・PHP v8.1.13<br>
+  ・Laravel v10.14.1<br>
 
 □インフラ<br>
-  .AWS(EC2,RDS)<br>
+  ・AWS(EC2,RDS)<br>
 
 
 ## About Laravel

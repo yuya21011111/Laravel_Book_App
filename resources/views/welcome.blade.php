@@ -34,14 +34,14 @@
                             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                                 @auth
                                     <a href="{{ url('/dashboard') }}"
-                                        class="font-semibold text-lime-500 hover:text-lime-700   focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ブックアプリ</a>
+                                        class="font-semibold text-gray-100 hover:text-gray-500 bg-lime-500   focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ブックアプリ</a>
                                 @else
                                     <a href="{{ route('login') }}"
-                                        class="font-semibold text-gray-100 hover:text-gray-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン
+                                        class="font-semibold text-gray-100 hover:text-gray-500  bg-lime-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン
                                         </a>
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}"
-                                            class="ml-4 font-semibold text-gray-100 hover:text-gray-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新規登録</a>
+                                            class="ml-4 font-semibold text-gray-100 hover:text-gray-500 bg-lime-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新規登録</a>
                                     @endif
                                 @endauth
                             </div>
@@ -66,16 +66,12 @@
               
             </dl>
           </div>
-          <div class="columns-2 md:columns-3 lg:columns-4">
-            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
-            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
-            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
-            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
-            <img class="mb-4 w-28" src="{{asset('images/image.png') }}">
-            
+          <div class="sample columns-2 md:columns-2 lg:columns-2">
+            <img class="mb-4 w-128" src="{{asset('images/sample1.png') }}">
+            <img class="mb-4 w-128" src="{{asset('images/sample2.png') }}">
+         </div>
         </div>
-        </div>
-      </div>
+    </div>
     <footer class="text-gray-600 bg-gray-300 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <p class="text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
