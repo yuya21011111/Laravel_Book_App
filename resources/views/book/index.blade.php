@@ -54,6 +54,7 @@
                                 @endforeach
                               </tbody>
                             </table>
+                            <span class="text-sm text-indigo-500">ステータスについて（1.読書中 2.未読 3.読破 4.今後読みたい）</span>
                             {{ $books->links() }}
                           </div>
                         </div>
