@@ -21,45 +21,52 @@
 
 <body class="antialiased bg-gray-150">
     <nav class="bg-gray-800">
-        <div class="max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="max-w-10xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
                 <div class="flex flex-shrink-0 items-center">
                     <div class="w-16">
                         <x-application-logo class="block h-9 w-auto fill-current  dark:text-gray-200" />
                     </div>
                 </div>
-                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                    <div>
-                        @if (Route::has('login'))
-                            <div class="sm:fixed sm:top-0 sm:right-0 p-6  text-right z-10">
-                                @auth
-                                    <a href="{{ url('/dashboard') }}"
-                                        class="font-semibold text-gray-100 hover:text-gray-500 bg-lime-500   focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ブックアプリ</a>
-                                @else
-                                    <a href="{{ route('login') }}"
-                                        class="font-semibold text-gray-100 hover:text-gray-500  bg-lime-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン
-                                    </a>
-                                    <!-- ゲストログイン機能 -->
-                                    <form action="{{ route('guestLogin') }}" methods="post">
-                                        @csrf
-                                        <button
-                                            class="font-semibold text-gray-100 hover:text-gray-500  bg-lime-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ゲストログインする</button>
-                                    </form>
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}"
-                                            class="ml-4 font-semibold text-gray-100 hover:text-gray-500 bg-lime-500  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新規登録</a>
-                                    @endif
-                                @endauth
-                              </div>
-
-
-
-
+                
+                <div class="flex justify-end z-10">
+                    <button class="flex border border-blue bg-green-400 p-3 rounded text-blue shadow-inner"
+                        dropdown="true" data-target="dropdown-menu">
+                        メニュー
+                    </button>
+                    @if (Route::has('login'))
+                    <div id="dropdown-menu"
+                        class="invisible absolute w-48 pin-t pin-l mt-16 bg-white shadow rounded border overflow-hidden">
+                        @auth
+                        <button type="button" onclick="location.href='{{ route('book') }}'"
+                            class="no-underline block px-4 py-3 border-b text-grey-darkest bg-white hover:text-green-400 hover:bg-grey whitespace-no-wrap">
+                            ブックアプリ
+                        </button>
+                        @else
+                        <button type="button" onclick="location.href='{{ route('login') }}'"
+                            class="no-underline block px-4 py-3 border-b text-grey-darkest bg-white hover:text-green-400 hover:bg-grey whitespace-no-wrap">
+                            ログイン
+                        </button>
+                        @if (Route::has('register'))
+                        <button type="button" onclick="location.href='{{ route('register') }}'"
+                            class="no-underline block px-4 py-3 border-b text-grey-darkest bg-white hover:text-green-400 hover:bg-grey whitespace-no-wrap">
+                            新規登録
+                        </button>
+                         <!-- ゲストログイン機能 -->
+                         <form action="{{ route('guestLogin') }}" methods="post">
+                          @csrf
+                          <button
+                              class="no-underline block px-4 py-3 border-b text-grey-darkest bg-white hover:text-green-400 hover:bg-grey whitespace-no-wrap">ゲストでログイン
+                          </button>
+                      </form>
                         @endif
-                    </div>
                 </div>
             </div>
         </div>
+        
+      </div>
+      @endif
+      @endauth
     </nav>
     <div class="over-image">
         <img src="{{ asset('images/book.jpg') }}" />
@@ -109,6 +116,16 @@
             </span>
         </div>
     </footer>
+    <script>
+        const $dropdowns = Array.prototype.slice.call(document.querySelectorAll('[dropdown="true"]'), 0)
+        if ($dropdowns.length > 0) {
+            $dropdowns.forEach($el => {
+                $el.addEventListener("click", event => {
+                    document.getElementById($el.dataset.target).classList.toggle("invisible")
+                })
+            })
+        }
+    </script>
 </body>
 
 </html>
