@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\GuestLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,10 @@ Route::middleware(['auth'])->prefix('book')->group(function () {
     Route::post('/update/{book}',[BookController::class,'update'])->name('book.update');
     Route::delete('/destroy/{book}',[BookController::class,'destroy'])->name('book.destroy');
 });
+
+// ゲストログイン機能
+Route::get('/guest-login', [GuestLoginController::class, 'guest'])->name('guestLogin');
+Route::post('/guest-login', [GuestLoginController::class, 'guest'])->name('guestLogin');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
