@@ -116,6 +116,8 @@
             </span>
         </div>
     </footer>
+    
+    <!-- ドロップダウンメニュー表示 -->
     <script>
         const $dropdowns = Array.prototype.slice.call(document.querySelectorAll('[dropdown="true"]'), 0)
         if ($dropdowns.length > 0) {
