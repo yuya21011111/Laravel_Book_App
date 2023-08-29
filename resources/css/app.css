@@ -9,6 +9,7 @@
     width: 60em;          
     margin : 0.1em auto;     /* 垂直方向に50ピクセルのマージンを設定し、水平方向のマージンは自動的に計算され、要素が中央に配置されます */
     z-index: 0;
+    max-width: 100%;
 }
 .over-image p {
     position: absolute;

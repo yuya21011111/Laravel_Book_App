@@ -69,7 +69,7 @@
       @endauth
     </nav>
     <div class="over-image">
-        <img src="{{ asset('images/book.jpg') }}" />
+        <img  src="{{ asset('images/book.jpg') }}" />
         <p class="text-5xl text-lime-400">読んだ本を管理へ〜</p>
     </div>
 
